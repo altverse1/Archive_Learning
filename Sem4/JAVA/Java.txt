@@ -1,0 +1,425 @@
+WEEK-1 BASIC PROGRAMS
+1.	Try debug step by step with small program of about 10 to 15 lines which contains at least one if else condition and a for loop.
+2.	Read array of numbers through command line and sort in ascending order.
+3.	Write a java program that prints all real solutions to the quadratic equation ax2+bx+c=0. Read in a, b, c and use the quadratic formula.
+4.	The Fibonacci sequence is defined by the following rule. The first two values in the sequence are 0 and 1. Every subsequent value is the sum of the two values preceding it. Write a java program that uses both recursive and non recursive functions.
+
+
+
+
+Try debug step by step with small program of about 10 to 15 lines which contains at least one if else condition and a for loop.
+
+import java.util.Scanner;
+
+public class Testp {
+	public static void main(String[] args) {
+		System.out.println("Welcome to Institute of Engineering College");
+		System.out.println("--------Prime Number--------");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter valid Number");
+		int n = sc.nextInt();
+		int c = 0;
+		for (int i = 1; i <= n; i++)
+		{
+			if (n % i == 0)
+			{
+				c++;
+			}
+		}
+		if (c == 2)
+		{
+			System.out.println(n + "is Prime Number");
+		}
+		else
+			System.out.println(n + "is not Prime Number");
+	}
+}
+
+Read array of numbers through command line and sort in ascending order.
+public class JavaApplication2
+{
+//@param args the command line arguments
+	public static void main(String[] args)
+	{
+// TODO code application logic here
+//dataType[] arrayRefVar = new dataType[arraySize]
+		int[] a=new int[10];
+		for(int i = 0; i < args.length; i++)
+		{
+			a[i]=Integer.parseInt(args[i]);
+		}
+		System.out.println("array before sorting");
+		for(int i = 0; i < args.length; i++)
+		{
+			System.out.print(a[i]);
+		}
+		for(int i = 0; i < args.length; i++)
+		{
+			for ( int k = i+1;k <args.length;k++)
+			{	
+				if(a[i]>a[k])
+				{
+					int temp;
+					temp=a[i];
+					a[i]=a[k];
+					a[k]=a[i];
+				}
+			}
+		}
+		System.out.println("array after sorting");
+		for(int i=0;i<args.length;i++)
+			System.out.print(a[i]);
+	}
+}
+
+Write a java program that prints all real solutions to the quadratic equation ax2+bx+c=0. Read in a, b, c and use the quadratic formula.
+import java.util.Scanner;
+class roots
+{
+	public static void main(String args[])
+	{
+		double r1,r2;
+		System.out.println("Enter a,b,c of the equation ax2+bx+c=0");
+		Scanner as=new Scanner (System.in);
+		int a=as.nextInt();
+		int b=as.nextInt();
+		int c=as.nextInt();
+		int d=b*b-4*a*c;
+		if(d<0)
+		{
+			System.out.println("There are no solutions");
+		}
+		if(d==0)
+		{
+			System.out.println("The roots are real and equal");
+			r1=r2=-b/(2.0*a);
+			System.out.println("The roots are "+r1+" and "+r2);
+			System.out.println("The roots are real");
+		}
+		if(d>0)
+		{
+			System.out.println("The roots are real");
+			r1=(-b+Math.sqrt(d))/(2.0*a);
+			r2=(-b-Math.sqrt(d))/(2.0*a);
+			System.out.println("The roots are "+r1+" and "+r2);
+		}
+	}
+}
+
+
+The Fibonacci sequence is defined by the following rule. The first two values in the sequence are 0 and 1. Every subsequent value is the sum of the two values preceding it. Write a java program that uses both recursive and non recursive functions.
+class Fibnon
+{
+	public static void main(String args[])
+	{
+		int n,n1;
+		Random as=new Random();
+		n=as.nextInt(10);
+		fib1 as1=new fib1 ();
+		n1=as1.fibc(n);
+		System.out.println("The "+n+"th fibonacci number is "+n1);
+	}
+}
+class fib1
+{
+	int a=1,b=1;
+	int fib;
+	int fibc(int n)
+	{
+		System.out.print(a+" "+b+" ");
+		for(int i=1;i<=n-2;i++)
+		{
+			fib=a+b;
+			System.out.print(fib+" ");
+			a=b;
+			b=fib;
+		}
+	return fib;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WEEK-2 MATRICES, OVERLOADING, OVERRIDING
+1.	Write a java program to multiply two given matrices.
+2.	Design a class to represent a bank account. Which contains account number, name of the depositor, type of the account, balance amount in the account. Use constructor to assign initial values, use member functions to Deposit an amount, to Withdraw amount after checking balance, to display name and balance.
+3.	Write a java program to implement method overriding.
+4.	Write a java program to check whether a given string is palindrome.
+
+
+
+
+
+
+
+Write a java program to multiply two given matrices.
+public class MatrixMultiplicationExample
+{  
+	public static void main(String args[])
+	{  
+		//creating two matrices    
+		int a[][]={{1,1,1},{2,2,2},{3,3,3}};    
+		int b[][]={{1,1,1},{2,2,2},{3,3,3}};    
+		//creating another matrix to store the multiplication of two 			matrices    
+		int c[][]=new int[3][3];  //3 rows and 3 columns  
+		//multiplying and printing multiplication of 2 matrices    
+		for(int i=0;i<3;i++)
+		{    
+			for(int j=0;j<3;j++)
+			{    
+				c[i][j]=0;      
+				for(int k=0;k<3;k++)      
+				{      
+					c[i][j]+=a[i][k]*b[k][j];      
+				}//end of k loop  
+				System.out.print(c[i][j]+" ");  //printing matrix 					element  
+			}//end of j loop  
+			System.out.println();//new line    
+		}    
+	}
+}
+
+Design a class to represent a bank account. Which contains account number, name of the depositor, type of the account, balance amount in the account. Use constructor to assign initial values, use member functions to Deposit an amount, to Withdraw amount after checking balance, to display name and balance.
+import java.util.Scanner;
+
+public class BankAccount {
+	int acno;
+	String name;
+	String type;
+	int bal;
+	BankAccount()
+	{
+		System.out.println("default constructor is called");
+	}
+	BankAccount(int a,String b,String c,int d)
+	{
+		acno=a;
+		name=b;
+		type=c;
+		bal=d;
+	}
+	void Deposit(int a)
+	{
+		System.out.println("Balance before deposit is"+bal);
+		bal=bal+a;
+		System.out.println("Balance after deposit is"+bal);
+	}
+	void Withdraw(int a)
+	{
+		System.out.println("Balance before withdrawal is"+bal);
+		bal=bal-a;
+		if(bal<0)
+		{
+			System.out.println("cannot withdraw");
+			bal=bal+a;
+		}
+		else
+			System.out.println("Balance after withdrawal is"+bal);
+	}
+	void Display()
+	{
+		System.out.println("Name is "+name);
+		System.out.println("Balance is "+bal);
+	}
+}
+class Bank1
+{
+	public static void main(String args[])
+	{
+		BankAccount b=new BankAccount();			  	
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter acno,name,type,bal");
+		BankAccount ba=new 			  		BankAccount(s.nextInt(),s.next(),s.next(),s.nextInt());
+		System.out.println("enter the amount to deposit");
+		ba.Deposit(s.nextInt());
+		System.out.println("enter the amount to withdraw");
+		ba.Withdraw(s.nextInt());
+		ba.Display();
+	}
+}
+
+
+Write a java program to implement method overriding.	
+public class MODemo {
+	//Method overriding.
+	int i, j;
+	MODemo (int a, int b)
+	{
+		i = a;
+		j = b;
+	}Write a java program to create an interface named Shape that contains empty method named Area () and
+perimeter(). Provide two classes named Triangle and Circle such that each one of the classes implement
+Shape. Each one of the classes contains only the method Area () and perimeter().that prints the area and
+perimeter() of the given shape.
+	//display i and j
+	void show()
+	{
+		System.out.println("i and j: " + i + " " + j);
+	}
+}
+class B extends MODemo
+{
+	int k;
+	B(int a, int b, int c)
+	{
+		super(a,b);
+		k = c;
+	}
+	//display k – this overrides show() in A
+	void show()
+	{
+		super.show();
+		System.out.println("k: " + k);
+	}
+}
+class Override
+{
+	public static void main(String args[])
+	{
+		B subOb = new B(1, 2, 3);
+		subOb.show(); // this calls show() in B
+	}
+}
+
+
+Write a java program to check whether a given string is palindrome.
+public class ChkPalindrome
+{
+	public static void main(String args[])
+	{
+		String str, rev = "";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string:");
+		str = sc.nextLine();
+		int length = str.length();
+		for ( int i = length - 1; i >= 0; i-- )
+			rev = rev + str.charAt(i);
+		if (str.equals(rev))
+			System.out.println(str+" is a palindrome");
+		else
+			System.out.println(str+" is not a palindrome");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WEEK-3: ABSTRACT CLASS, INTERFACE
+1.	To create an abstract class named shape that contains two integers and an empty method named printArea. Provide three classes named Rectangle, Triangle and Circle subclass that each one of the classes extends the Class Shape. Each one of the classes contains only the method printArea() that prints the area of Shape.
+2.	Write a java program to create an interface named Shape that contains empty method named Area () and perimeter(). Provide two classes named Triangle and Circle such that each one of the classes implement Shape. Each one of the classes contains only the method Area () and perimeter().that prints the area and perimeter() of the given shape.
+
+
+
+
+abstract class shape
+{
+	public int x, y;
+	public abstract void printArea();
+}
+class Rectangle extends shape
+{
+	public void printArea()
+	{
+		System.out.println("Area of Rectangle is " + x * y);
+	}
+}
+class Triangle extends shape
+{
+	public void printArea()
+	{
+		System.out.println("Area of Triangle is " + (x * y) / 2);
+	}
+}
+class Circle extends shape
+{
+	public void printArea()
+	{
+		System.out.println("Area of Circle is " + (22 * x * x) / 7);
+	}
+}
+public class abstex
+{
+	public static void main(String[] args)
+	{
+		// TODO code application logic here
+		Rectangle r = new Rectangle();
+		r.x = 10;
+		r.y = 20;
+		r.printArea();
+		System.out.println("-------------------------------------");
+		Triangle t = new Triangle();
+		t.x = 30;
+		t.y = 35;
+		t.printArea();
+		System.out.println("-------------------------------------");
+		Circle c = new Circle();
+		c.x = 2;
+		c.printArea();
+		System.out.println("-------------------------------------");
+	}
+}
+
+
